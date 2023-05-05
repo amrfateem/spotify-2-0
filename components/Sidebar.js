@@ -32,7 +32,7 @@ function Sidebar() {
       id="sidebar"
       className="
     overflow-y-scroll h-screen scrollbar-hide text-xm lg:text-sm sm:max-w-[12rem] lg:max-w-[15rem]
-   absolute transition-all z-10 bg-black md:inline-flex text-gray-500 p-5  text-sm border-r border-gray-600 -translate-x-full"
+   absolute md:fixed transition-all z-10 bg-black md:inline-flex text-gray-500 p-5  text-sm border-r border-gray-600 -translate-x-full md:translate-x-0"
     >
       <div className="space-y-4">
         {/* When needed */}
