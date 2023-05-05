@@ -49,7 +49,7 @@ function Center() {
   };
   return (
     <div className="flex-grow h-screen overflow-y-scroll scrollbar-hide w-full">
-      <header className="absolute flex items-center top-5 justify-between px-3 w-[-webkit-fill-available]">
+      <header className="absolute flex items-center py-5 justify-between px-3 w-[-webkit-fill-available] bg-gradient-to-b from-black">
         <div>
           <MenuAlt1Icon
             onClick={() => openSidebar()}
