@@ -1,4 +1,4 @@
-import { ChevronDownIcon } from "@heroicons/react/outline";
+import { ChevronDownIcon, MenuAlt1Icon } from "@heroicons/react/outline";
 import { signOut, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { shuffle } from "lodash";
@@ -39,10 +39,27 @@ function Center() {
       });
   }, [spotifyApi, playlistId]);
 
+  const openSidebar = () => {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.classList.remove("-translate-x-full");
+  };
+  const closeSidebar = () => {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.classList.add("-translate-x-full");
+  };
   return (
-    <div className="flex-grow h-screen overflow-y-scroll scrollbar-hide">
-      <header className="absolute top-5 right-8">
-        <div onClick={() => signOut()} className="cursor-pointer transition-all  bg-black rounded-full p-1 pr-2 flex items-center space-x-3 opacity-90 hover:opacity-80">
+    <div className="flex-grow h-screen overflow-y-scroll scrollbar-hide w-full">
+      <header className="absolute flex items-center top-5 justify-between px-3 w-[-webkit-fill-available]">
+        <div>
+          <MenuAlt1Icon
+            onClick={() => openSidebar()}
+            className="w-10 h-10 md:hidden text-gray-100 hover:text-gray-300 transition-all"
+          />
+        </div>
+        <div
+          onClick={() => signOut()}
+          className="cursor-pointer transition-all  bg-black rounded-full p-1 pr-2 flex items-center space-x-3 opacity-90 hover:opacity-80"
+        >
           <img
             src={session?.user.image}
             className="rounded-full w-10 h-10"
@@ -55,6 +72,7 @@ function Center() {
 
       <section
         className={`p-8 flex items-end space-x-7 bg-gradient-to-b to-black ${color} h-80 text-white `}
+        onClick={() => closeSidebar()}
       >
         <img
           className="h-40 w-40 shadow-xl"

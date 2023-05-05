@@ -7,7 +7,7 @@ import {
   RssIcon,
   UserIcon,
 } from "@heroicons/react/outline";
-import {  useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import useSpotify from "../hooks/useSpotify";
 import { useRecoilState } from "recoil";
@@ -29,12 +29,15 @@ function Sidebar() {
 
   return (
     <div
+      id="sidebar"
       className="
     overflow-y-scroll h-screen scrollbar-hide text-xm lg:text-sm sm:max-w-[12rem] lg:max-w-[15rem]
-   hidden md:inline-flex text-gray-500 p-5  text-sm border-r border-gray-600"
+   absolute transition-all z-10 bg-black md:inline-flex text-gray-500 p-5  text-sm border-r border-gray-600 -translate-x-full"
     >
       <div className="space-y-4">
-        <button className="flex items-center space-x-2 hover:text-white transition-all">
+        {/* When needed */}
+
+        {/* <button className="flex items-center space-x-2 hover:text-white transition-all">
           <HomeIcon className="h-5 w-5" />
           <p>Home</p>
         </button>
@@ -59,9 +62,9 @@ function Sidebar() {
         <button className="flex items-center space-x-2 hover:text-white transition-all">
           <RssIcon className="h-5 w-5" />
           <p>Your Episodes</p>
-        </button>
+        </button> 
 
-        <hr className="border-t-[0.1px] border-gray-500" />
+        <hr className="border-t-[0.1px] border-gray-500" />*/}
 
         {playlists.map((playlist) => (
           <p

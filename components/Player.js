@@ -10,7 +10,11 @@ import {
   VolumeOffIcon,
 } from "@heroicons/react/solid";
 import { PauseIcon, PlayIcon } from "@heroicons/react/solid";
-import { ReplyIcon, VolumeUpIcon } from "@heroicons/react/outline";
+import {
+  ReplyIcon,
+  SwitchVerticalIcon,
+  VolumeUpIcon,
+} from "@heroicons/react/outline";
 import { debounce } from "lodash";
 
 function Player() {
@@ -58,9 +62,16 @@ function Player() {
     }
   }, [currentTrackIdState, spotifyApi, session]);
 
-  //   const handleShuffle = () => {
-  //     spotifyApi.setShuffle(!shuffle).catch((err) => console.log(err));
-  //   };
+  // get spotify shuffle state and toggle it
+  const handleShuffle = () => {
+    spotifyApi.getMyCurrentPlaybackState().then((data) => {
+      if (data.body.shuffle_state) {
+        spotifyApi.setShuffle(false);
+      } else {
+        spotifyApi.setShuffle(true);
+      }
+    });
+  };
 
   return (
     <div className="h-24 grid grid-cols-2 text-xs md:text-base px-2 md:px-3 text-white bg-gradient-to-b from-black to-gray-500">
