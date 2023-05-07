@@ -52,7 +52,7 @@ function Center() {
       <header className="absolute flex items-center py-5 justify-between px-3 w-[-webkit-fill-available] bg-gradient-to-b from-black">
         <div>
           <MenuAlt1Icon
-            onClick={() => openSidebar()}
+            onClick={openSidebar}
             className="w-10 h-10 md:hidden text-gray-100 hover:text-gray-300 transition-all"
           />
         </div>
@@ -72,7 +72,7 @@ function Center() {
 
       <section
         className={`p-8 flex items-end space-x-7 bg-gradient-to-b to-black ${color} h-80 text-white `}
-        onClick={() => closeSidebar()}
+        onClick={closeSidebar}
       >
         <img
           className="h-40 w-40 shadow-xl"
